@@ -37,9 +37,9 @@
     print-color-adjust:exact;
   }
 
-  /* ---------- A4 PAGE ---------- */
+  /* ---------- A4 PAGE (locked to one sheet) ---------- */
   .page{
-    width:210mm;min-height:297mm;
+    width:210mm;height:297mm;
     margin:24px auto;
     background:var(--cream-bg);
     position:relative;overflow:hidden;
@@ -103,8 +103,9 @@
   }
 
   /* ---------- BODY ---------- */
-  .body{padding:14px 40px 10px;flex:1;}
-  .annex{margin-bottom:20px;}
+  .body{padding:12px 40px 6px;flex:1;display:flex;flex-direction:column;justify-content:center;}
+  .annex{margin-bottom:16px;}
+  .annex:last-of-type{margin-bottom:6px;}
 
   .annex-head{
     display:flex;align-items:center;gap:12px;margin-bottom:9px;
