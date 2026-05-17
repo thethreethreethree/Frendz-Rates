@@ -46,6 +46,12 @@
     box-shadow:0 12px 45px rgba(0,0,0,.28);
     display:flex;flex-direction:column;
   }
+  /* auto-fit wrapper: JS scales this so everything fits one A4 page */
+  .fit{
+    min-height:210mm;width:100%;
+    display:flex;flex-direction:column;
+    transform-origin:top center;
+  }
 
   /* ---------- HEADER ---------- */
   .header{
@@ -238,6 +244,7 @@
 </div>
 
 <div class="page">
+<div class="fit">
 
   <!-- ===================== HEADER ===================== -->
   <header class="header">
@@ -406,7 +413,27 @@
     <span class="meta" contenteditable="true">frendzresorthostels.com<br>El Nido, Palawan · Philippines</span>
   </footer>
 
+</div><!-- /.fit -->
 </div>
+
+<script>
+  /* Auto-fit: scales the page content so the whole sheet always
+     fits exactly one A4 landscape page (on screen and when printed). */
+  (function(){
+    function autofit(){
+      var page=document.querySelector('.page'),
+          fit=document.querySelector('.fit');
+      if(!page||!fit)return;
+      fit.style.transform='none';
+      var s=Math.min(1, page.clientHeight/fit.scrollHeight);
+      fit.style.transform='scale('+s+')';
+    }
+    window.addEventListener('load',autofit);
+    window.addEventListener('resize',autofit);
+    window.addEventListener('beforeprint',autofit);
+    if(document.fonts&&document.fonts.ready){document.fonts.ready.then(autofit);}
+  })();
+</script>
 
 </body>
 </html>

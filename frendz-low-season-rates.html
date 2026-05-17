@@ -47,6 +47,12 @@
     box-shadow:0 12px 45px rgba(0,0,0,.28);
     display:flex;flex-direction:column;
   }
+  /* auto-fit wrapper: JS scales this so everything fits one A4 page */
+  .fit{
+    min-height:297mm;width:100%;
+    display:flex;flex-direction:column;
+    transform-origin:top center;
+  }
 
   /* ---------- HEADER ---------- */
   .header{
@@ -55,7 +61,7 @@
       radial-gradient(circle at 50% 16%, rgba(255,210,94,.32), transparent 55%),
       linear-gradient(160deg,#262626 0%,#141414 100%);
     color:#fff;
-    padding:30px 40px 20px;
+    padding:26px 40px 24px;
     text-align:center;
   }
   .header .sun{
@@ -83,7 +89,7 @@
   }
   .title{
     font-family:'Oswald',sans-serif;font-weight:700;
-    font-size:46px;letter-spacing:2px;margin-top:9px;
+    font-size:39px;letter-spacing:2px;margin-top:9px;
     text-transform:uppercase;line-height:1.02;
   }
   .title .hl{color:var(--gold);}
@@ -103,8 +109,8 @@
 
   /* ---------- BODY ---------- */
   .body{
-    padding:8px 40px 4px;flex:1;
-    display:flex;flex-direction:column;justify-content:flex-start;
+    padding:12px 40px 8px;flex:1;
+    display:flex;flex-direction:column;justify-content:space-evenly;
   }
   .annex{margin-bottom:11px;}
   .annex:last-of-type{margin-bottom:0;}
@@ -115,14 +121,14 @@
   .annex-head .num{
     background:linear-gradient(135deg,var(--gold),var(--gold-deep));
     color:var(--ink);
-    font-family:'Oswald',sans-serif;font-weight:700;font-size:18px;
-    width:36px;height:36px;border-radius:50%;
+    font-family:'Oswald',sans-serif;font-weight:700;font-size:16px;
+    width:32px;height:32px;border-radius:50%;
     display:flex;align-items:center;justify-content:center;flex:none;
     box-shadow:0 3px 8px rgba(242,166,0,.4);
   }
   .annex-head h2{
     font-family:'Oswald',sans-serif;font-weight:600;
-    font-size:26px;letter-spacing:.5px;text-transform:uppercase;
+    font-size:21px;letter-spacing:.5px;text-transform:uppercase;
     color:var(--ink);
   }
   .annex-head .rule{
@@ -135,49 +141,49 @@
     background:var(--paper);
     box-shadow:0 4px 14px rgba(0,0,0,.08);
   }
-  table{width:100%;border-collapse:collapse;font-size:18px;}
+  table{width:100%;border-collapse:collapse;font-size:14px;}
   thead th{
     background:linear-gradient(135deg,#2a2a2a,#161616);
     color:#fff;
     font-family:'Oswald',sans-serif;font-weight:500;
-    letter-spacing:1px;text-transform:uppercase;font-size:14px;
-    text-align:left;padding:8px 16px;
+    letter-spacing:1px;text-transform:uppercase;font-size:11.5px;
+    text-align:left;padding:7px 16px;
   }
   thead th.num-col,thead th.rate-col{text-align:center;}
-  tbody td{padding:8px 16px;border-bottom:1px solid #f0f0f0;}
+  tbody td{padding:7px 16px;border-bottom:1px solid #f0f0f0;}
   tbody tr:nth-child(even){background:#fffaf0;}
   tbody tr:last-child td{border-bottom:none;}
   .room-name{font-weight:700;line-height:1.2;}
   .room-name .pax{
-    display:block;font-weight:600;font-size:13px;
+    display:block;font-weight:600;font-size:11px;
     color:var(--teal);letter-spacing:.3px;
   }
   .num-col{text-align:center;color:var(--ink-soft);white-space:nowrap;font-weight:600;}
   .rate-col{text-align:center;white-space:nowrap;}
   .rate-col .amt{
     font-family:'Oswald',sans-serif;font-weight:700;
-    font-size:25px;color:var(--blue);
+    font-size:19px;color:var(--blue);
   }
-  .rate-col .amt::before{content:"₱";font-size:16px;vertical-align:1px;margin-right:1px;}
+  .rate-col .amt::before{content:"₱";font-size:12px;vertical-align:1px;margin-right:1px;}
   .rate-col .per{
-    display:block;font-size:12px;color:var(--ink-soft);
+    display:block;font-size:10px;color:var(--ink-soft);
     letter-spacing:.5px;text-transform:uppercase;
   }
 
   .extras{
     margin-top:9px;
     background:linear-gradient(135deg,var(--cream),var(--sun));
-    border-radius:9px;padding:10px 18px;
-    display:flex;gap:26px;font-size:16px;font-weight:700;
+    border-radius:9px;padding:9px 18px;
+    display:flex;gap:26px;font-size:13px;font-weight:700;
     align-items:center;
   }
   .extras .lbl{
     font-family:'Oswald',sans-serif;font-weight:600;
     text-transform:uppercase;letter-spacing:.6px;
-    font-size:13px;color:var(--ink-soft);margin-right:auto;
+    font-size:11.5px;color:var(--ink-soft);margin-right:auto;
   }
   .extras span b{
-    font-family:'Oswald',sans-serif;color:var(--blue);font-size:19px;
+    font-family:'Oswald',sans-serif;color:var(--blue);font-size:15px;
   }
 
   /* ---------- FOOTER ---------- */
@@ -237,6 +243,7 @@
 </div>
 
 <div class="page">
+<div class="fit">
 
   <!-- ===================== HEADER ===================== -->
   <header class="header">
@@ -394,7 +401,27 @@
     <span class="meta" contenteditable="true">frendzresorthostels.com<br>El Nido, Palawan · Philippines</span>
   </footer>
 
+</div><!-- /.fit -->
 </div>
+
+<script>
+  /* Auto-fit: scales the page content so the whole sheet always
+     fits exactly one A4 page (on screen and when printed). */
+  (function(){
+    function autofit(){
+      var page=document.querySelector('.page'),
+          fit=document.querySelector('.fit');
+      if(!page||!fit)return;
+      fit.style.transform='none';
+      var s=Math.min(1, page.clientHeight/fit.scrollHeight);
+      fit.style.transform='scale('+s+')';
+    }
+    window.addEventListener('load',autofit);
+    window.addEventListener('resize',autofit);
+    window.addEventListener('beforeprint',autofit);
+    if(document.fonts&&document.fonts.ready){document.fonts.ready.then(autofit);}
+  })();
+</script>
 
 </body>
 </html>
