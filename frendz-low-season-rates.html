@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Frendz El Nido — Low Season Room Rates</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Nunito:wght@400;600;700;900&family=Caveat:wght@700&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     FRENDZ EL NIDO — LOW SEASON ROOM RATES
+     Print-ready A4 poster. Brand-matched to frendzresorthostels.com
+     -----------------------------------------------------------
+     HOW TO EDIT:
+       - Open this file in any web browser.
+       - Click directly on any text to edit it (contenteditable).
+       - To change prices/rooms, edit the text in the tables below.
+       - Brand colors are defined in the :root block — change once,
+         updates everywhere.
+     HOW TO PRINT / EXPORT PDF:
+       - Press Ctrl+P  ->  Destination: "Save as PDF"
+       - Paper: A4   Margins: None/Default   Background graphics: ON
+     ============================================================ */
+
+  :root{
+    --gold:        #febb24;   /* Frendz signature yellow  */
+    --gold-deep:   #f2a600;   /* darker gold for accents  */
+    --cream:       #feedba;   /* soft cream background    */
+    --ink:         #222222;   /* near-black text          */
+    --ink-soft:    #555555;   /* secondary text           */
+    --blue:        #0065b3;   /* brand accent blue        */
+    --paper:       #ffffff;
+  }
+
+  *{ box-sizing:border-box; margin:0; padding:0; }
+
+  html,body{
+    background:#d9d9d9;
+    font-family:'Nunito', sans-serif;
+    color:var(--ink);
+    -webkit-print-color-adjust:exact;
+    print-color-adjust:exact;
+  }
+
+  /* ---------- A4 PAGE ---------- */
+  .page{
+    width:210mm;
+    min-height:297mm;
+    margin:24px auto;
+    background:var(--paper);
+    position:relative;
+    overflow:hidden;
+    box-shadow:0 10px 40px rgba(0,0,0,.25);
+    display:flex;
+    flex-direction:column;
+  }
+
+  /* ---------- HEADER ---------- */
+  .header{
+    background:var(--ink);
+    color:#fff;
+    padding:34px 40px 30px;
+    position:relative;
+    text-align:center;
+  }
+  .header::after{                       /* gold underline bar */
+    content:"";
+    position:absolute; left:0; right:0; bottom:0;
+    height:8px; background:var(--gold);
+  }
+  .brand{
+    font-family:'Caveat', cursive;
+    font-size:34px;
+    color:var(--gold);
+    line-height:1;
+  }
+  .brand-sub{
+    font-family:'Oswald', sans-serif;
+    font-weight:500;
+    letter-spacing:6px;
+    font-size:13px;
+    color:#fff;
+    margin-top:2px;
+  }
+  .title{
+    font-family:'Oswald', sans-serif;
+    font-weight:700;
+    font-size:46px;
+    letter-spacing:2px;
+    margin-top:14px;
+    text-transform:uppercase;
+  }
+  .title .hl{ color:var(--gold); }
+  .season{
+    display:inline-block;
+    margin-top:12px;
+    background:var(--gold);
+    color:var(--ink);
+    font-family:'Oswald', sans-serif;
+    font-weight:600;
+    font-size:13px;
+    letter-spacing:1.5px;
+    padding:7px 18px;
+    border-radius:20px;
+    text-transform:uppercase;
+  }
+
+  /* ---------- BODY ---------- */
+  .body{
+    padding:30px 40px 16px;
+    flex:1;
+  }
+
+  .annex{ margin-bottom:24px; }
+
+  .annex-head{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-bottom:10px;
+  }
+  .annex-head .num{
+    background:var(--gold);
+    color:var(--ink);
+    font-family:'Oswald', sans-serif;
+    font-weight:700;
+    font-size:16px;
+    width:30px; height:30px;
+    border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    flex:none;
+  }
+  .annex-head h2{
+    font-family:'Oswald', sans-serif;
+    font-weight:600;
+    font-size:21px;
+    letter-spacing:.5px;
+    text-transform:uppercase;
+    color:var(--ink);
+  }
+  .annex-head .rule{
+    flex:1; height:3px; background:var(--cream); border-radius:2px;
+  }
+
+  table{
+    width:100%;
+    border-collapse:collapse;
+    font-size:13.5px;
+  }
+  thead th{
+    background:var(--ink);
+    color:#fff;
+    font-family:'Oswald', sans-serif;
+    font-weight:500;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    font-size:11.5px;
+    text-align:left;
+    padding:9px 14px;
+  }
+  thead th.num-col, thead th.rate-col{ text-align:center; }
+  tbody td{
+    padding:9px 14px;
+    border-bottom:1px solid #ececec;
+  }
+  tbody tr:nth-child(even){ background:#fbfbfb; }
+  tbody tr:last-child td{ border-bottom:none; }
+  .room-name{ font-weight:700; }
+  .room-name .pax{
+    display:block; font-weight:400; font-size:11px; color:var(--ink-soft);
+  }
+  .num-col{ text-align:center; color:var(--ink-soft); white-space:nowrap; }
+  .rate-col{ text-align:center; white-space:nowrap; }
+  .rate-col .amt{
+    font-family:'Oswald', sans-serif;
+    font-weight:700;
+    font-size:17px;
+    color:var(--blue);
+  }
+  .rate-col .per{
+    display:block; font-size:10px; color:var(--ink-soft); letter-spacing:.5px;
+  }
+  .tablewrap{
+    border:1px solid #e6e6e6;
+    border-radius:8px;
+    overflow:hidden;
+  }
+
+  /* extras strip */
+  .extras{
+    margin-top:10px;
+    background:var(--cream);
+    border-radius:8px;
+    padding:10px 16px;
+    display:flex;
+    gap:28px;
+    font-size:12.5px;
+    font-weight:600;
+  }
+  .extras span b{
+    font-family:'Oswald', sans-serif;
+    color:var(--blue);
+    font-size:14px;
+  }
+
+  /* ---------- FOOTER ---------- */
+  .footer{
+    background:var(--ink);
+    color:#fff;
+    padding:16px 40px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    font-size:11px;
+  }
+  .footer .tag{
+    font-family:'Caveat', cursive;
+    font-size:22px;
+    color:var(--gold);
+  }
+  .footer .meta{ text-align:right; line-height:1.5; letter-spacing:.4px; }
+  .note{
+    text-align:center;
+    font-size:10.5px;
+    color:var(--ink-soft);
+    padding:8px 40px 0;
+    font-style:italic;
+  }
+
+  /* ---------- PRINT ---------- */
+  @page{ size:A4; margin:0; }
+  @media print{
+    html,body{ background:#fff; }
+    .page{ margin:0; box-shadow:none; }
+    .editbar{ display:none !important; }
+  }
+
+  /* on-screen editing helper bar */
+  .editbar{
+    max-width:210mm; margin:0 auto;
+    font-family:'Nunito',sans-serif; font-size:12px;
+    color:#444; text-align:center; padding:6px;
+  }
+  [contenteditable]:focus{
+    outline:2px dashed var(--gold-deep);
+    outline-offset:2px;
+  }
+</style>
+</head>
+<body>
+
+<div class="editbar">✎ Click any text to edit it. &nbsp;|&nbsp; Press <b>Ctrl+P</b> → “Save as PDF” (A4, background graphics ON) to print.</div>
+
+<div class="page">
+
+  <!-- ===================== HEADER ===================== -->
+  <header class="header">
+    <div class="brand" contenteditable="true">Frendz</div>
+    <div class="brand-sub" contenteditable="true">RESORT &amp; HOSTELS · EL NIDO</div>
+    <div class="title" contenteditable="true">LOW SEASON <span class="hl">ROOM RATES</span></div>
+    <div class="season" contenteditable="true">Valid June 1 – October 31, 2025</div>
+  </header>
+
+  <!-- ===================== BODY ===================== -->
+  <main class="body">
+
+    <!-- ---------- ANNEX 2 ---------- -->
+    <section class="annex">
+      <div class="annex-head">
+        <span class="num">2</span>
+        <h2 contenteditable="true">Frendz Beachfront Annex 2</h2>
+        <span class="rule"></span>
+      </div>
+      <div class="tablewrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Room Type</th>
+            <th class="num-col">Room No.</th>
+            <th class="rate-col">Rate (₱)</th>
+          </tr>
+        </thead>
+        <tbody contenteditable="true">
+          <tr>
+            <td class="room-name">Native Room with Verandah<span class="pax">2 pax</span></td>
+            <td class="num-col">501–505</td>
+            <td class="rate-col"><span class="amt">3,000</span><span class="per">per night</span></td>
+          </tr>
+          <tr>
+            <td class="room-name">Native Seaview Triple Room with Balcony<span class="pax">3 pax</span></td>
+            <td class="num-col">506–510</td>
+            <td class="rate-col"><span class="amt">3,450</span><span class="per">per night</span></td>
+          </tr>
+          <tr>
+            <td class="room-name">Superior Room Seaview with Verandah<span class="pax">2 pax</span></td>
+            <td class="num-col">601–602</td>
+            <td class="rate-col"><span class="amt">4,500</span><span class="per">per night</span></td>
+          </tr>
+          <tr>
+            <td class="room-name">Superior Room with Balcony<span class="pax">2 pax</span></td>
+            <td class="num-col">605–606</td>
+            <td class="rate-col"><span class="amt">3,450</span><span class="per">per night</span></td>
+          </tr>
+          <tr>
+            <td class="room-name">Superior Room Seaview Penthouse<span class="pax">2 pax</span></td>
+            <td class="num-col">607–608</td>
+            <td class="rate-col"><span class="amt">4,500</span><span class="per">per night</span></td>
+          </tr>
+          <tr>
+            <td class="room-name">Double Courtyard Private Room<span class="pax">&nbsp;</span></td>
+            <td class="num-col">603–604</td>
+            <td class="rate-col"><span class="amt">2,475</span><span class="per">per night</span></td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+      <div class="extras" contenteditable="true">
+        <span>Extra Mattress <b>₱1,000</b> / night</span>
+        <span>Extra Bed <b>₱800</b> / night</span>
+      </div>
+    </section>
+
+    <!-- ---------- ANNEX 1 ---------- -->
+    <section class="annex">
+      <div class="annex-head">
+        <span class="num">1</span>
+        <h2 contenteditable="true">Frendz Backyard Annex 1</h2>
+        <span class="rule"></span>
+      </div>
+      <div class="tablewrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Room Type</th>
+            <th class="rate-col">Rate (₱)</th>
+          </tr>
+        </thead>
+        <tbody contenteditable="true">
+          <tr>
+            <td class="room-name">Private Room<span class="pax">2 pax</span></td>
+            <td class="rate-col"><span class="amt">2,550</span><span class="per">per night</span></td>
+          </tr>
+          <tr>
+            <td class="room-name">8 Bed Mixed Dorm<span class="pax">&nbsp;</span></td>
+            <td class="rate-col"><span class="amt">900</span><span class="per">per bed / night</span></td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+    </section>
+
+    <!-- ---------- MAIN BUILDING ---------- -->
+    <section class="annex">
+      <div class="annex-head">
+        <span class="num">★</span>
+        <h2 contenteditable="true">Frendz Main Building</h2>
+        <span class="rule"></span>
+      </div>
+      <div class="tablewrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Room Type</th>
+            <th class="rate-col">Rate (₱)</th>
+          </tr>
+        </thead>
+        <tbody contenteditable="true">
+          <tr>
+            <td class="room-name">Family Room<span class="pax">4 pax</span></td>
+            <td class="rate-col"><span class="amt">4,500</span><span class="per">per night</span></td>
+          </tr>
+          <tr>
+            <td class="room-name">Private Room<span class="pax">2 pax</span></td>
+            <td class="rate-col"><span class="amt">3,000</span><span class="per">per night</span></td>
+          </tr>
+          <tr>
+            <td class="room-name">6 Bed Mixed Dorm<span class="pax">&nbsp;</span></td>
+            <td class="rate-col"><span class="amt">1,050</span><span class="per">per bed / night</span></td>
+          </tr>
+          <tr>
+            <td class="room-name">8 Bed Mixed Dorm<span class="pax">&nbsp;</span></td>
+            <td class="rate-col"><span class="amt">950</span><span class="per">per bed / night</span></td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+    </section>
+
+  </main>
+
+  <div class="note" contenteditable="true">All rates are in Philippine Peso (₱) and subject to availability. Rates valid for the low season period stated above.</div>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer">
+    <span class="tag" contenteditable="true">#frendzforlife</span>
+    <span class="meta" contenteditable="true">frendzresorthostels.com<br>El Nido, Palawan · Philippines</span>
+  </footer>
+
+</div>
+
+</body>
+</html>
