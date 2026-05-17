@@ -1,0 +1,2 @@
+# Frendz Rates
+Frendz Ratesd
