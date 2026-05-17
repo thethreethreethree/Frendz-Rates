@@ -218,6 +218,12 @@
   }
   .print-btn:hover{transform:translateY(-2px);box-shadow:0 6px 16px rgba(242,166,0,.55);}
   .print-btn:active{transform:translateY(0);}
+  .link-btn{
+    font-family:'Oswald',sans-serif;font-weight:600;letter-spacing:.5px;
+    text-transform:uppercase;font-size:11px;color:var(--blue);
+    text-decoration:none;border:2px solid var(--blue);
+    border-radius:20px;padding:7px 16px;
+  }
   [contenteditable]:focus{outline:2px dashed var(--gold-deep);outline-offset:2px;}
 </style>
 </head>
@@ -226,6 +232,7 @@
 <div class="editbar">
   <span>✎ Click any text to edit it.</span>
   <button class="print-btn" onclick="window.print()">🖨 Print / Save as PDF</button>
+  <a class="link-btn" href="frendz-low-season-rates-landscape.html">⇄ Landscape version</a>
   <span>Tip: choose A4 &amp; turn on “Background graphics”.</span>
 </div>
 
