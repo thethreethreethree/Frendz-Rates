@@ -9,23 +9,24 @@
 <style>
   /* ============================================================
      FRENDZ EL NIDO — LOW SEASON ROOM RATES
-     Print-ready A4 poster · brand-matched to frendzresorthostels.com
+     Print-ready A4 poster · fits on a single A4 sheet.
      ------------------------------------------------------------
      EDIT : open in a browser, click any text to type over it.
             Brand colours live in the :root block below.
-     PRINT: Ctrl+P -> Save as PDF -> A4 -> Background graphics ON.
+     PRINT: click the Print button, or Ctrl+P -> Save as PDF
+            -> A4 -> Background graphics ON.
      ============================================================ */
 
   :root{
-    --gold:#febb24;        /* Frendz signature yellow */
+    --gold:#febb24;
     --gold-deep:#f2a600;
-    --sun:#ffd25e;         /* lighter sun tint        */
-    --cream:#feedba;       /* soft cream              */
-    --cream-bg:#fff8e6;    /* page tint               */
+    --sun:#ffd25e;
+    --cream:#feedba;
+    --cream-bg:#fff8e6;
     --ink:#1c1c1c;
     --ink-soft:#5c5c5c;
-    --blue:#0065b3;        /* brand accent blue       */
-    --teal:#159a9c;        /* tropical sea accent     */
+    --blue:#0065b3;
+    --teal:#159a9c;
     --paper:#ffffff;
   }
   *{box-sizing:border-box;margin:0;padding:0;}
@@ -37,7 +38,7 @@
     print-color-adjust:exact;
   }
 
-  /* ---------- A4 PAGE (locked to one sheet) ---------- */
+  /* ---------- A4 PAGE (single sheet) ---------- */
   .page{
     width:210mm;height:297mm;
     margin:24px auto;
@@ -51,17 +52,16 @@
   .header{
     position:relative;
     background:
-      radial-gradient(circle at 50% 18%, rgba(255,210,94,.32), transparent 55%),
+      radial-gradient(circle at 50% 16%, rgba(255,210,94,.32), transparent 55%),
       linear-gradient(160deg,#262626 0%,#141414 100%);
     color:#fff;
-    padding:40px 40px 78px;
+    padding:26px 40px 52px;
     text-align:center;
   }
-  /* sun rays behind the brand */
   .sun{
-    position:absolute;top:-70px;left:50%;
+    position:absolute;top:-58px;left:50%;
     transform:translateX(-50%);
-    width:230px;height:230px;
+    width:190px;height:190px;
     background:radial-gradient(circle,var(--gold) 0 34%,transparent 36%);
     opacity:.18;
   }
@@ -74,53 +74,55 @@
   }
   .header > *{position:relative;z-index:1;}
   .brand{
-    font-family:'Caveat',cursive;font-size:40px;
+    font-family:'Caveat',cursive;font-size:32px;
     color:var(--gold);line-height:1;
   }
   .brand-sub{
     font-family:'Oswald',sans-serif;font-weight:500;
-    letter-spacing:6px;font-size:12px;color:#e9e9e9;margin-top:2px;
+    letter-spacing:5px;font-size:11px;color:#e9e9e9;margin-top:2px;
   }
   .title{
     font-family:'Oswald',sans-serif;font-weight:700;
-    font-size:50px;letter-spacing:2px;margin-top:20px;
+    font-size:38px;letter-spacing:2px;margin-top:10px;
     text-transform:uppercase;line-height:1.02;
   }
   .title .hl{color:var(--gold);}
   .season{
-    display:inline-block;margin-top:14px;
+    display:inline-block;margin-top:10px;
     background:linear-gradient(135deg,var(--gold),var(--gold-deep));
     color:var(--ink);
     font-family:'Oswald',sans-serif;font-weight:600;
-    font-size:13px;letter-spacing:1.5px;
-    padding:8px 22px;border-radius:22px;text-transform:uppercase;
+    font-size:12px;letter-spacing:1.3px;
+    padding:6px 18px;border-radius:20px;text-transform:uppercase;
     box-shadow:0 4px 12px rgba(0,0,0,.3);
   }
-  /* wave divider at the bottom of the header */
   .wave{
     position:absolute;left:0;right:0;bottom:-1px;
-    width:100%;height:46px;display:block;
+    width:100%;height:38px;display:block;
   }
 
   /* ---------- BODY ---------- */
-  .body{padding:12px 40px 6px;flex:1;display:flex;flex-direction:column;justify-content:center;}
-  .annex{margin-bottom:16px;}
-  .annex:last-of-type{margin-bottom:6px;}
+  .body{
+    padding:14px 40px 6px;flex:1;
+    display:flex;flex-direction:column;justify-content:center;
+  }
+  .annex{margin-bottom:15px;}
+  .annex:last-of-type{margin-bottom:0;}
 
   .annex-head{
-    display:flex;align-items:center;gap:12px;margin-bottom:9px;
+    display:flex;align-items:center;gap:11px;margin-bottom:7px;
   }
   .annex-head .num{
     background:linear-gradient(135deg,var(--gold),var(--gold-deep));
     color:var(--ink);
-    font-family:'Oswald',sans-serif;font-weight:700;font-size:16px;
-    width:34px;height:34px;border-radius:50%;
+    font-family:'Oswald',sans-serif;font-weight:700;font-size:14px;
+    width:28px;height:28px;border-radius:50%;
     display:flex;align-items:center;justify-content:center;flex:none;
     box-shadow:0 3px 8px rgba(242,166,0,.4);
   }
   .annex-head h2{
     font-family:'Oswald',sans-serif;font-weight:600;
-    font-size:21px;letter-spacing:.5px;text-transform:uppercase;
+    font-size:18px;letter-spacing:.5px;text-transform:uppercase;
     color:var(--ink);
   }
   .annex-head .rule{
@@ -129,70 +131,69 @@
   }
 
   .tablewrap{
-    border-radius:12px;overflow:hidden;
+    border-radius:11px;overflow:hidden;
     background:var(--paper);
     box-shadow:0 4px 14px rgba(0,0,0,.08);
   }
-  table{width:100%;border-collapse:collapse;font-size:13.5px;}
+  table{width:100%;border-collapse:collapse;font-size:12.5px;}
   thead th{
     background:linear-gradient(135deg,#2a2a2a,#161616);
     color:#fff;
     font-family:'Oswald',sans-serif;font-weight:500;
-    letter-spacing:1px;text-transform:uppercase;font-size:11.5px;
-    text-align:left;padding:10px 16px;
+    letter-spacing:1px;text-transform:uppercase;font-size:10.5px;
+    text-align:left;padding:7px 16px;
   }
   thead th.num-col,thead th.rate-col{text-align:center;}
-  tbody td{padding:9px 16px;border-bottom:1px solid #f0f0f0;}
+  tbody td{padding:6px 16px;border-bottom:1px solid #f0f0f0;}
   tbody tr:nth-child(even){background:#fffaf0;}
   tbody tr:last-child td{border-bottom:none;}
-  .room-name{font-weight:700;}
+  .room-name{font-weight:700;line-height:1.2;}
   .room-name .pax{
-    display:block;font-weight:600;font-size:10.5px;
-    color:var(--teal);letter-spacing:.3px;margin-top:1px;
+    display:block;font-weight:600;font-size:10px;
+    color:var(--teal);letter-spacing:.3px;
   }
   .num-col{text-align:center;color:var(--ink-soft);white-space:nowrap;font-weight:600;}
   .rate-col{text-align:center;white-space:nowrap;}
   .rate-col .amt{
     font-family:'Oswald',sans-serif;font-weight:700;
-    font-size:18px;color:var(--blue);
+    font-size:16px;color:var(--blue);
   }
-  .rate-col .amt::before{content:"₱";font-size:12px;vertical-align:2px;margin-right:1px;}
+  .rate-col .amt::before{content:"₱";font-size:11px;vertical-align:1px;margin-right:1px;}
   .rate-col .per{
-    display:block;font-size:9.5px;color:var(--ink-soft);
+    display:block;font-size:9px;color:var(--ink-soft);
     letter-spacing:.5px;text-transform:uppercase;
   }
 
-  /* extras strip */
   .extras{
-    margin-top:10px;
+    margin-top:8px;
     background:linear-gradient(135deg,var(--cream),var(--sun));
-    border-radius:10px;padding:11px 18px;
-    display:flex;gap:30px;font-size:12.5px;font-weight:700;
+    border-radius:9px;padding:8px 18px;
+    display:flex;gap:26px;font-size:12px;font-weight:700;
     align-items:center;
   }
   .extras .lbl{
     font-family:'Oswald',sans-serif;font-weight:600;
     text-transform:uppercase;letter-spacing:.6px;
-    font-size:11px;color:var(--ink-soft);margin-right:auto;
+    font-size:10.5px;color:var(--ink-soft);margin-right:auto;
   }
   .extras span b{
-    font-family:'Oswald',sans-serif;color:var(--blue);font-size:15px;
+    font-family:'Oswald',sans-serif;color:var(--blue);font-size:14px;
   }
 
   /* ---------- FOOTER ---------- */
-  .footwave{width:100%;height:40px;display:block;margin-bottom:-1px;}
+  .note{
+    text-align:center;font-size:9px;color:var(--ink-soft);
+    padding:8px 40px 6px;font-style:italic;
+  }
+  .footwave{width:100%;height:30px;display:block;margin-bottom:-1px;}
   .footer{
     background:linear-gradient(160deg,#262626,#141414);
-    color:#fff;padding:16px 40px;
+    color:#fff;padding:12px 40px;
     display:flex;justify-content:space-between;align-items:center;
-    font-size:11px;
+    font-size:10.5px;
   }
-  .footer .tag{font-family:'Caveat',cursive;font-size:26px;color:var(--gold);}
-  .footer .meta{text-align:right;line-height:1.55;letter-spacing:.4px;color:#e2e2e2;}
-  .note{
-    text-align:center;font-size:10px;color:var(--ink-soft);
-    padding:6px 40px 10px;font-style:italic;
-  }
+  .footer .tag{font-family:'Caveat',cursive;font-size:24px;color:var(--gold);}
+  .footer .meta{text-align:right;line-height:1.5;letter-spacing:.4px;color:#e2e2e2;}
 
   /* ---------- PRINT ---------- */
   @page{size:A4;margin:0;}
